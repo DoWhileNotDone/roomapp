@@ -1,0 +1,42 @@
+<ul class="nav nav-tabs" role="tablist">
+  <li class="active"><%= link_to 'View Rooms', rooms_path %></li>
+  <li><%= link_to 'New Room', new_room_path %></li>
+</ul>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+
+    <table class="table">
+      <thead class="thead-light">   
+        <tr>
+          <th>Name</th>
+          <th>Location</th>
+          <th>Facilities</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @rooms.each do |room| %>
+        <tr>
+          <td><%= room.name %></td>
+          <td><%= room.location %></td>
+          <td><%= room.care_facilities %></td>
+          <td><%= link_to 'Show', room_path(room), class: 'btn btn-link' %></td>
+          <td><%= link_to 'Edit', edit_room_path(room), class: 'btn btn-link' %></td>
+          <% if room.can_delete  then %>
+            <td><%= link_to 'Remove', room_path(room),
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' }, class: 'btn btn-link'
+                %>
+            </td>
+          <% end %>
+      <% end %>
+      </tbody>
+    </table>
+
+    <%= link_to 'Back', root_path, class: 'btn btn-link' %>
+    
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="panel panel-default">
+  <div class="panel-heading">View Occupancy</div>
+  <div class="panel-body">
+
+    <form class="form-horizontal">
+
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="name">Person:</label>
+        <div class="col-sm-10">
+          <p class="form-control-static"><%= @occupancy.person.name %></p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="location">Room:</label>
+        <div class="col-sm-10">
+          <p class="form-control-static"><%= @occupancy.room.name %></p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="name">Start Date:</label>
+        <div class="col-sm-10">
+          <p class="form-control-static"><%= @occupancy.start_date %></p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="name">End Date:</label>
+        <div class="col-sm-10">
+          <p class="form-control-static"><%= @occupancy.end_date %></p>
+        </div>
+      </div>
+
+    </form>
+
+    <%= link_to 'Back', occupancies_path, class: 'btn btn-link'  %>
+
+  </div>
+</div>

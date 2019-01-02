@@ -1,0 +1,43 @@
+<ul class="nav nav-tabs" role="tablist">
+  <li class="active"><%= link_to 'View People', persons_path %></li>
+  <li><%= link_to 'New Person', new_person_path %></li>
+</ul>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+
+    <table class="table">
+      <thead class="thead-light">  
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Requirements</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @persons.each do |person| %>
+          <tr>
+            <td><%= person.name %></td>
+            <td><%= person.age %></td>
+            <td><%= person.requirements %></td>
+            <td><%= link_to 'Show', person_path(person), class: 'btn btn-link' %></td>
+            <td><%= link_to 'Edit', edit_person_path(person), class: 'btn btn-link' %></td>
+            <% if person.can_delete  then %>
+              <td><%= link_to 'Remove', person_path(person),
+                    method: :delete,
+                    data: { confirm: 'Are you sure?' },
+                    class: 'btn btn-link'
+                  %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <%= link_to 'Back', root_path, class: 'btn btn-link' %>
+    
+  </div>
+</div>

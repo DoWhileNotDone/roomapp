@@ -1,0 +1,57 @@
+<% if @room.errors.any? %>
+  <div class="panel panel-danger">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <%= pluralize(@room.errors.count, "error") %> prevented this room from being saved:
+      </h4>
+    </div>
+    <div class="panel-body">
+      <ul>
+        <% @room.errors.full_messages.each do |msg| %>
+          <li> <%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>
+<div class="panel panel-default">
+  <div class="panel-heading">New Room</div>
+  <div class="panel-body">
+    <%= form_with scope: :room, url: rooms_path, html: { :role => "form"}, class: "form-horizontal", local: true do |form| %>
+
+      <div class="form-group">
+        <%= form.label :name, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+          <%= form.text_field :name, class:"form-control"  %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :location, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+          <%= form.text_area :location, class:"form-control"  %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :care_facilities, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+          <%= form.text_area :care_facilities, class:"form-control"  %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <%= form.submit %>
+        </div>
+      </div>
+      
+    <% end %>
+
+    <%= link_to 'Back', rooms_path, class: 'btn btn-link' %>
+
+  </div>
+</div>
+
+
+

@@ -1,0 +1,33 @@
+<div class="panel panel-default">
+  <div class="panel-heading">View Person</div>
+  <div class="panel-body">
+
+    <form class="form-horizontal">
+
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="name">Name:</label>
+        <div class="col-sm-10">
+          <p class="form-control-static"><%= @person.name %></p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="location">Age:</label>
+        <div class="col-sm-10">
+          <p class="form-control-static"><%= @person.age %></p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="name">Requirements:</label>
+        <div class="col-sm-10">
+          <p class="form-control-static"><%= @person.requirements %></p>
+        </div>
+      </div>
+
+    </form>
+
+    <%= link_to 'Back', persons_path, class: 'btn btn-link'  %>
+
+  </div>
+</div>

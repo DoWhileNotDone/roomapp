@@ -1,0 +1,16 @@
+<div class='container'>
+  <div class="welcome">
+    <h1>Welcome to the Rooms Application</h1>
+    <p class="lead">
+    This application allows you to manage rooms, people, and allocations.
+    </p>
+
+    <ul class="list-group ">
+      <li class="list-group-item ">There are <%= @rooms.count %> rooms of which <%=  @unoccupied_rooms_count %> are not occupied.</li>
+      <li class="list-group-item ">There are <%= @persons.count %> people of which <%= @unallocated_persons_count %> are not allocated.</li>
+      <% if @expiring_occupancies_count != 0 %>
+        <li class="list-group-item list-group-item-warning">There are <%=  @expiring_occupancies_count %> occupancies with less than a week to run.</li>
+      <% end %>
+    </ul>
+  </div>
+</div>

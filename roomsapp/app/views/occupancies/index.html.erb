@@ -1,0 +1,44 @@
+<ul class="nav nav-tabs" role="tablist">
+  <li class="active"><%= link_to 'View Occupancies', occupancies_path %></li>
+  <li><%= link_to 'New Occupancy', new_occupancy_path %></li>
+</ul>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+
+    <table class="table ">
+      <thead class="thead-light">   
+        <tr>
+          <th>Person</th>
+          <th>Room</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @occupancies.each do |occupancy| %>
+          <tr>
+            <td><%= occupancy.person.name %></td>
+            <td><%= occupancy.room.name %></td>
+            <td><%= occupancy.start_date %></td>
+            <td><%= occupancy.end_date %></td>
+            <td><%= link_to 'Show', occupancy_path(occupancy), class: 'btn btn-link' %></td>
+            <td><%= link_to 'Edit', edit_occupancy_path(occupancy), class: 'btn btn-link' %></td>
+            <td><%= link_to 'Remove', occupancy_path(occupancy),
+                    method: :delete,
+                    data: { confirm: 'Are you sure?' }, 
+                    class: 'btn btn-link' 
+                %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <%= link_to 'Back', root_path, class: 'btn btn-link' %>
+
+  </div>
+</div>
+

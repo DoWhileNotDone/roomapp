@@ -1,0 +1,56 @@
+<% if @person.errors.any? %>
+  <div class="panel panel-danger">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <%= pluralize(@person.errors.count, "error") %> prevented this person from being saved:
+      </h4>
+    </div>
+    <div class="panel-body">
+      <ul>
+        <% @person.errors.full_messages.each do |msg| %>
+          <li> <%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>
+
+<div class="panel panel-default">
+  <div class="panel-heading">New Person</div>
+  <div class="panel-body">
+
+    <%= form_with scope: :person, url: persons_path, html: { :role => "form"}, class: "form-horizontal", local: true do |form| %>
+    
+      <div class="form-group">
+        <%= form.label :name, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+          <%= form.text_field :name, class:"form-control"  %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :date_of_birth, class: "col-sm-2 control-label" %>
+        <div class="col-sm-3">
+          <%= form.date_field :date_of_birth, class:"form-control form-date"  %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :requirements, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+          <%= form.text_area :requirements, class:"form-control"  %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <%= form.submit %>
+        </div>
+      </div>
+
+    <% end %>
+
+    <%= link_to 'Back', persons_path, class: 'btn btn-link'  %>
+
+  </div>
+</div>

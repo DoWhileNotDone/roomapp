@@ -1,0 +1,63 @@
+<% if @occupancy.errors.any? %>
+  <div class="panel panel-danger">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <%= pluralize(@occupancy.errors.count, "error") %> prevented this occupancy from being saved:
+      </h4>
+    </div>
+    <div class="panel-body">
+      <ul>
+        <% @occupancy.errors.full_messages.each do |msg| %>
+          <li> <%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>
+
+<div class="panel panel-default">
+  <div class="panel-heading">New Occupancy</div>
+  <div class="panel-body">
+    
+    <%= form_with scope: :occupancy, url: occupancies_path, html: { :role => "form"}, class: "form-horizontal", local: true do |form| %>
+
+      <div class="form-group">
+        <%= form.label :person, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+          <%= form.collection_select(:person_id, Person.all, :id, :name, { :prompt => 'Select a Person', :selected => @occupancy.person_id }, { class: 'form-control' }) %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :room, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+          <%= form.collection_select(:room_id, Room.all, :id, :name, { :prompt => 'Select a Room', :selected => @occupancy.room_id }, { class: 'form-control' }) %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :start_date, class: "col-sm-2 control-label" %>
+        <div class="col-sm-3">
+          <%= form.date_field :start_date, class:"form-control form-date"  %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :end_date, class: "col-sm-2 control-label" %>
+        <div class="col-sm-3">
+          <%= form.date_field :end_date, class:"form-control form-date"  %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <%= form.submit %>
+        </div>
+      </div>
+
+    <% end %>
+
+    <%= link_to 'Back', occupancies_path, class: 'btn btn-link'  %>
+
+  </div>
+</div>

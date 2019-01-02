@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Roomsapp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div id="main-container" class="container">
+
+      <%= render 'shared/navigation' %>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

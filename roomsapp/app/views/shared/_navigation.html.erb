@@ -1,0 +1,16 @@
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/" class="<%= 'active' if params[:controller] == 'home' %>">Room Application</a>
+    </div>
+    <div class="navbar-link <%= 'active' if params[:controller] == 'persons' %>">
+      <a class="navbar-brand" href="/persons"  ">People</a>
+    </div>
+    <div class="navbar-link <%= 'active' if params[:controller] == 'rooms' %>">
+      <a class="navbar-brand" href="/rooms">Rooms</a>
+    </div>
+    <div class="navbar-link <%= 'active' if params[:controller] == 'occupancies' %>">
+      <a class="navbar-brand" href="/occupancies">Occupancies</a>
+    </div>
+  </div>
+</nav>

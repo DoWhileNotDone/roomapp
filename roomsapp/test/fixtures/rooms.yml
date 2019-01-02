@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: Room One
+  location: Here
+  care_facilities: Facilities
+
+two:
+  name: Room Two
+  location: There
+  care_facilities: Other Facilities
