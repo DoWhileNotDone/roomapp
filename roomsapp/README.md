@@ -4,8 +4,6 @@
 
 I have used this exercise as a way to learn around some of the languages, tools, and frameworks being used. As such, it will be relatively clunky in places, due to my relative lack of familiarity with some aspects.
 
-Apologies if this is way off what was anticipated. I was trying to find a balance between learning, producing something solid, and getting it turned around in a reasonable timeframe.
-
 The following is a list of the main tools used:
 
 - [Ruby](https://www.ruby-lang.org/en/)
@@ -32,8 +30,6 @@ vagrant up
 This will provision a vagrant server with ubuntu 18.04, ruby/rails, sqlite, and apache. It will also create the database, and bring in the gem dependencies.
 
 There will be a lot of commands executed, with information shown in red or green. There shouldn't be anything to worry about, but the check is whether you reach the 'Vagrant Up' message, and there are no exit codes reported.
-
-If anything untoward occurs, please let me know.
 
 All being well, it will allow you to browse to the site and start making requests. Further instructions can be found below.
 
